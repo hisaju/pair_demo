@@ -1,5 +1,4 @@
 class PairsController < ApplicationController
-
   def index
   end
 
@@ -31,17 +30,27 @@ class PairsController < ApplicationController
     end
 
     def upload_data(text, image)
+      path = resize_image(image)
       connection = Faraday::Connection.new(url: 'http://pair.malkdesign.com/' ) do |conn|
         conn.request :multipart
         conn.adapter :net_http
       end
-  
+
       params = {
         text: text,
-        picture: Faraday::UploadIO.new(image, 'text/plain') 
+        picture: Faraday::UploadIO.new(path, 'image/jpg') 
       }
       res = connection.post '/check.php', params
       return JSON.parse(res.body)
+    end
+
+    def resize_image(image)
+      img = Magick::Image.from_blob(image.tempfile.read).shift
+      height = (img.rows.to_f * 1000.to_f / img.columns.to_f).to_i
+      img = img.resize(1000, height)
+      f = Tempfile.new('tmp')
+      img.write(f.path)
+      f.path
     end
 
 end
