@@ -6,10 +6,10 @@
 
 <div class="form" style="margin: 100px 100px 0;">
 <% if flash[:notice].present? %>
-  <h4 class="text-primary"><%= flash[:notice] %></h4>
+  <h4 class="text-primary" style="margin-bottom: 50px"><%= flash[:notice] %></h4>
 <% end %>
 <% if flash[:alert].present? %>
-  <h4 class="text-danger" style="color:red"><%= flash[:alert] %></h4>
+  <h4 class="text-danger" style="margin-bottom: 50px"><%= flash[:alert] %></h4>
 <% end %>
 <%= bootstrap_form_tag url: upload_pairs_path do |f| %>
   <%= f.text_field :text %>
