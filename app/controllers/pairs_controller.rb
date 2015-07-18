@@ -8,8 +8,8 @@ class PairsController < ApplicationController
   def upload
     return redirect_to pair_path, alert: "入力項目が空ですよ!" if params[:text].blank? || params[:image].blank?
 
-    text_data = base64_text
-    image_data = params[:image]
+    text_data = #テキストデータ
+    image_data = #画像でーた
 
     result = upload_data(text_data, image_data)
 
@@ -21,14 +21,6 @@ class PairsController < ApplicationController
   end
 
   private
-    def pair_params
-      params.require(:pair).permit(:text, :image)
-    end
-
-    def base64_text
-      Base64.encode64(params[:text])
-    end
-
     def upload_data(text, image)
       path = resize_image(image)
       connection = Faraday::Connection.new(url: 'http://pair.malkdesign.com/' ) do |conn|
