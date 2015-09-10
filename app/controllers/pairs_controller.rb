@@ -46,8 +46,7 @@ class PairsController < ApplicationController
 
     def resize_image(image)
       img = Magick::Image.from_blob(image.tempfile.read).shift
-      height = (img.rows.to_f * 1000.to_f / img.columns.to_f).to_i
-      img = img.resize(1000, height)
+      img = img.resize_to_fit(1000, 420)
       f = Tempfile.new('tmp')
       img.write(f.path)
       f.path
