@@ -10,6 +10,7 @@ gem 'font-awesome-sass'
 gem 'bootstrap_form'
 gem 'faraday'
 gem 'rmagick'
+gem 'twilio-ruby', '~> 4.2.1'
 
 gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
