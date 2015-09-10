@@ -12,6 +12,9 @@
   <h4 class="text-danger" style="margin-bottom: 50px"><%= flash[:alert] %></h4>
 <% end %>
 <%= bootstrap_form_tag url: upload_pairs_path do |f| %>
+  <%= f.text_field :text %>
+  <%= f.file_field :image %>
+  <%= f.submit 'Upload' %>
 <% end %>
 </div>
 
