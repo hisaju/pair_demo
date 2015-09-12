@@ -13,6 +13,7 @@
 <% end %>
 <%= bootstrap_form_tag url: upload_pairs_path do |f| %>
   <%= f.text_field :text %>
+  <%= f.collection_select :sound, Recording.all.order("created_at desc"), :url, :created_at %>
   <%= f.file_field :image %>
   <%= f.submit 'Upload' %>
 <% end %>

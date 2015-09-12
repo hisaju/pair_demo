@@ -10,8 +10,9 @@ class PairsController < ApplicationController
 
     text_data = base64_text
     image_data = params[:image]
+    sound_url = params[:sound]
 
-    result = upload_data(text_data, image_data)
+    result = upload_data(text_data, sound, image_data)
 
     if result["flag"] == 'success'
       redirect_to pair_path, notice: "秘密のメッセージ「#{text_data}」と画像が送られました☆"
@@ -29,7 +30,7 @@ class PairsController < ApplicationController
       Base64.encode64(params[:text])
     end
 
-    def upload_data(text, image)
+    def upload_data(text, sound, image)
       path = resize_image(image)
       connection = Faraday::Connection.new(url: 'http://pair.malkdesign.com/' ) do |conn|
         conn.request :multipart
@@ -38,6 +39,7 @@ class PairsController < ApplicationController
 
       params = {
         text: text,
+        sound: sound, 
         picture: Faraday::UploadIO.new(path, 'image/jpg') 
       }
       res = connection.post '/check.php', params

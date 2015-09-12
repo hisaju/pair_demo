@@ -1,6 +1,6 @@
 <aside class="callout">
   <div class="text-vertical-center">
-    <h1>Upload your Images</h1>
+    <h1>Call your phone</h1>
   </div>
 </aside>
 
@@ -13,10 +13,22 @@
 <% end %>
 <%= bootstrap_form_tag url: call_path do |f| %>
   <%= f.text_field :tel %>
-  <%= f.text_field :answer %>
   <%= f.submit 'Call' %>
 <% end %>
 </div>
+
+<table>
+  <tr>
+    <th>作成日時</th>
+    <th>音声</th>
+  </tr>
+  <% @recordings.each do |rec| %>
+  <tr>
+    <td><%= rec.created_at %></td>
+    <td><%= link_to rec.url, rec.url, target: "_blank" %></td>
+  </tr>
+  <% end %>
+</table>
 
 <footer>
   <div class="container">
