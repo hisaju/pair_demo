@@ -6,15 +6,15 @@ class TelephonesController < ApplicationController
   end
 
   def call
-    account_sid = 'AC838b5e603b5fa4c55385e6115d3117a6'
-    auth_token = '60d5ca020c7f3d7096b7b49bdb06ee85'
+    account_sid = 'ACf38bae3d8fa8d16aeaa3569c2314cd49'
+    auth_token = '5d231efbe6ddf4dd7d3a36246479b334'
     
     tel = params[:tel]
     tel.gsub!(/^0/, '+81')
 
     client = Twilio::REST::Client.new account_sid, auth_token
     client.calls.create(
-      from: '+815031597307',
+      from: '+815031331466',
       to: tel,
       url: record_url
     ) 
