@@ -1,0 +1,8 @@
+ja:
+  activerecord:
+    models:
+      movie: 動画
+    attributes:
+      movie:
+        comment: 動画へのコメントをどうぞ!
+        video: 動画
