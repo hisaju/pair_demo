@@ -14,10 +14,10 @@
 ActiveRecord::Schema.define(version: 20170602121825) do
 
   create_table "movies", force: :cascade do |t|
-    t.text     "comment"
-    t.string   "video"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.text     "comment",    limit: 65535
+    t.string   "video",      limit: 255
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
 end

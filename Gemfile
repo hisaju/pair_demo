@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '4.2.8'
-gem 'sqlite3'
+gem 'mysql2', '~> 0.3.17'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
@@ -10,7 +10,9 @@ gem 'font-awesome-sass'
 gem 'bootstrap_form'
 gem 'faraday'
 gem 'rmagick'
-gem 'twilio-ruby', '~> 4.2.1'
+gem 'carrierwave'
+gem 'fog'
+gem 'dotenv-rails'
 
 gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
@@ -27,4 +29,3 @@ group :development, :test do
   gem 'pry-doc'
   gem 'pry-byebug'
 end
-

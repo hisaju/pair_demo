@@ -162,6 +162,11 @@ hr.small {
     -o-background-size: cover;
 }
 
+.header.custom{
+    background: image-url('dog.jpg') no-repeat center center scroll;
+    background-size: cover;
+}
+
 /* About */
 
 .about {

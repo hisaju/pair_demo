@@ -1,0 +1,23 @@
+<header id="top" class="header custom">
+  <div class="text-vertical-center">
+    <h1>Congraulations!!</h1>
+    <h3>You uploaded video. See bellow!</h3>
+  </div>
+</header>
+<div class="container">
+  <div class="row">
+    <% if @movies.present? %>
+      <% @movies.each do |movie| %>
+        <div class="col-md-4">
+          <div class="panel panel-info">
+            <div class="panel-body">
+              Basic panel example
+              <%= movie.video.url %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% else %>
+    <% end %>
+  </div>
+</div>
