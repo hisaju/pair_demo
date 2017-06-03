@@ -3,5 +3,5 @@ Rails.application.routes.draw do
   get '/', to: 'pairs#index', as: 'pairs'
 
   resources :pairs, only: [:index]
-  resources :movies, only: [:index, :new, :create]
+  # ここにmoviesのindex,new,createアクションのroutesを書こう！
 end

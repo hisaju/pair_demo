@@ -5,16 +5,15 @@
 </aside>
 
 <div class="form" style="margin: 100px 100px 0;">
-  <% if flash[:notice].present? %>
-    <h4 class="text-primary" style="margin-bottom: 50px"><%= flash[:notice] %></h4>
-  <% end %>
   <% if flash[:alert].present? %>
-    <h4 class="text-danger" style="margin-bottom: 50px"><%= flash[:alert] %></h4>
+    <h4 class="text-danger" style="margin-bottom: 50px">
+      <%# ここにflash(alert)メッセージを表示しよう！ %>
+    </h4>
   <% end %>
   <%= bootstrap_form_for @movie do |f| %>
-    <%= f.text_area :comment %>
-    <%= f.file_field :video %>
-    <%= f.submit 'Upload' %>
+    <%# ここにコメント入力欄を表示しよう！ %>
+    <%# ここにビデオアップロードボタンを表示しよう！ %>
+    <%# ここに投稿ボタンを表示しよう！ %>
   <% end %>
 </div>
 

@@ -1,23 +1,17 @@
 class MoviesController < ApplicationController
   def index
-    @movies = Movie.all
   end
 
   def new
-    @movie = Movie.new
+    # ここでmovieオブジェクトを作ろう！
   end
 
   def create
-    comment = movie_params[:comment]
-    video   = movie_params[:video]
-    @movie = Movie.new(comment: comment, video: video)
+    # ここでcomment,video paramsが渡っているか確認しよう。
+    # 渡っていなかったら :newを標示してください！
 
-    if comment.blank? || video.blank?
-      return render(:new)
-    else
-      @movie.save
-      redirect_to movies_path, notice: "秘密のメッセージ「#{comment}」と動画が送られました☆"
-    end
+    # ここでmovieオブジェクトを作成、validationをかけよう！
+    # 作成できたらmovies#indexへリダイレクトしよう！
   end
 
   private
